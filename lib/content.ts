@@ -2,7 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import matter from 'gray-matter';
 import rawProjects from '@/data/projects.json';
-import type { Locale, Localized } from './site';
+import { sections, type Locale, type Localized } from './site';
 
 export type Project = {
   id: string;
@@ -69,4 +69,13 @@ export function projectBody(slug: string, lang: Locale) {
 }
 export function noteSlugs() {
   return [...new Set(notes().map((n) => n.slug))];
+}
+
+// Keep archive URLs stable, but expose entry points only after publication.
+export function visibleSections(lang: Locale) {
+  return sections.filter(
+    (section) =>
+      (section !== 'projects' || projects.length > 0) &&
+      (section !== 'notes' || notes(lang).length > 0),
+  );
 }

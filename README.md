@@ -41,7 +41,9 @@ Structured content lives in `data/`; navigation and UI translations live in `mes
 
 The site contains the supplied education, interests, learning subjects, experiences, and awards. There are no invented projects, publications, or completed learning milestones. Missing CVs, role details, award years, and social profiles remain explicit pending items. See `data/todos.json`.
 
-No CV download link is rendered until the matching local PDF is supplied. Draft and archived projects and notes are excluded from public pages. Empty project and notes pages describe the current state without linking to nonexistent work.
+Project and note entry points appear automatically after content is published in the corresponding language. Empty archives retain their existing URLs, but are omitted from navigation and the sitemap and marked `noindex`. CV and academic profile panels appear only when their links are available. Draft and archived projects and notes are excluded from public lists.
+
+The homepage prioritizes research interests and contact. Shared styles are inlined to remove a render-blocking request, and supporting browsers prepare internal pages on hover or touch intent using native document prefetch/prerender rules. Standard links remain usable when speculation is unavailable. Only the active language's navigation labels are sent to the navigation component.
 
 ## Deployment
 

@@ -1,7 +1,8 @@
 import Link from '@/components/site-link';
 import type { ReactNode } from 'react';
 import profile from '@/data/profile.json';
-import { asset, messages, route, type Locale } from '@/lib/site';
+import { asset, messages, route, type Locale, type Section } from '@/lib/site';
+import { visibleSections } from '@/lib/content';
 
 export function Arrow({ diagonal = false }: { diagonal?: boolean }) {
   return (
@@ -55,22 +56,7 @@ export function CV({
       {t.downloadCV}
       <Arrow diagonal />
     </a>
-  ) : (
-    <span className="cv-pending" title={t.cvHelp}>
-      <svg
-        width="15"
-        height="18"
-        viewBox="0 0 20 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.4"
-        aria-hidden="true"
-      >
-        <path d="M3 1h9l5 5v16H3ZM12 1v6h5M6 12h8M6 16h8" />
-      </svg>
-      {t.cvPending}
-    </span>
-  );
+  ) : null;
 }
 export function SectionHeading({
   label,
@@ -216,6 +202,7 @@ export function ContactStrip({ lang }: { lang: Locale }) {
 }
 export function Footer({ lang }: { lang: Locale }) {
   const t = messages(lang);
+  const available = visibleSections(lang);
   return (
     <footer className="site-footer container">
       <div className="footer-top">
@@ -225,11 +212,15 @@ export function Footer({ lang }: { lang: Locale }) {
         <p>{t.footerLine}</p>
       </div>
       <nav aria-label={lang === 'en' ? 'Footer navigation' : '页脚导航'}>
-        {Object.entries(t.nav).map(([key, label]) => (
-          <Link key={key} href={route(lang, key === 'home' ? '' : key)}>
-            {label}
-          </Link>
-        ))}
+        {Object.entries(t.nav)
+          .filter(
+            ([key]) => key === 'home' || available.includes(key as Section),
+          )
+          .map(([key, label]) => (
+            <Link key={key} href={route(lang, key === 'home' ? '' : key)}>
+              {label}
+            </Link>
+          ))}
       </nav>
       <div className="footer-bottom">
         <span>

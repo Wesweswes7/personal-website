@@ -14,7 +14,7 @@ import {
   absolute,
   route,
 } from '@/lib/site';
-import { notes, projects, noteSlugs } from '@/lib/content';
+import { notes, projects, noteSlugs, visibleSections } from '@/lib/content';
 type Props = { params: Promise<{ lang: string; path: string[] }> };
 export const dynamicParams = false;
 export function generateStaticParams() {
@@ -27,8 +27,14 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: Props) {
   const { lang, path } = await params;
   if (!isLocale(lang)) notFound();
-  if (path.length === 1 && sections.includes(path[0] as Section))
-    return metadata(lang, messages(lang).nav[path[0] as Section], path[0]);
+  if (path.length === 1 && sections.includes(path[0] as Section)) {
+    return {
+      ...metadata(lang, messages(lang).nav[path[0] as Section], path[0]),
+      ...(!visibleSections(lang).includes(path[0] as Section)
+        ? { robots: { index: false, follow: true } }
+        : {}),
+    };
+  }
   if (path[0] === 'projects') {
     const p = projects.find((p) => p.slug === path[1]);
     if (p)

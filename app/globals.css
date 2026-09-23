@@ -553,6 +553,9 @@ h2 {
 .archive-grid h2 {
   font-size: 25px;
 }
+.archive-grid > :only-child {
+  grid-column: 1 / -1;
+}
 .archive-grid .section-heading {
   margin-bottom: 20px;
 }
@@ -989,6 +992,9 @@ h2 {
   display: grid;
   grid-template-columns: 1.2fr 1fr;
   gap: 60px;
+}
+.contact-page-grid.without-cv {
+  grid-template-columns: minmax(0, 760px);
 }
 .contact-item {
   display: grid;

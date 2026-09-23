@@ -4,19 +4,31 @@ import Link from '@/components/site-link';
 import { usePathname } from 'next/navigation';
 import { useEffect, useRef, useState } from 'react';
 import {
-  messages,
+  type messages,
   route,
   basePath,
   type Locale,
   type Section,
 } from '@/lib/site';
 
-export function Navigation({ lang }: { lang: Locale }) {
+export type NavigationLabels = Pick<
+  ReturnType<typeof messages>,
+  'nav' | 'skip' | 'menu' | 'close' | 'aboutMe' | 'language'
+>;
+
+export function Navigation({
+  lang,
+  available,
+  labels: t,
+}: {
+  lang: Locale;
+  available: Section[];
+  labels: NavigationLabels;
+}) {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const menu = useRef<HTMLDetailsElement>(null);
   const toggle = useRef<HTMLButtonElement>(null);
-  const t = messages(lang);
   const cleanPath =
     basePath && pathname.startsWith(basePath + '/')
       ? pathname.slice(basePath.length)
@@ -76,9 +88,9 @@ export function Navigation({ lang }: { lang: Locale }) {
           <span>Zhongsheng Luo</span>
         </Link>
         <nav className="desktop-nav" aria-label={t.menu}>
-          {(['research', 'learning', 'projects', 'notes'] as Section[]).map(
-            (k) => navLink(k),
-          )}
+          {(['research', 'learning', 'projects', 'notes'] as Section[])
+            .filter((key) => available.includes(key))
+            .map((key) => navLink(key))}
           <details
             className="about-menu"
             ref={menu}
@@ -147,7 +159,9 @@ export function Navigation({ lang }: { lang: Locale }) {
             'awards',
             'contact',
           ] as const
-        ).map((k) => navLink(k, true))}
+        )
+          .filter((key) => key === 'home' || available.includes(key))
+          .map((key) => navLink(key, true))}
       </nav>
     </header>
   );

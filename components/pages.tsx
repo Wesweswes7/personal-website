@@ -193,9 +193,9 @@ export function HomePage({ lang }: { lang: Locale }) {
             </Link>
             <Link
               className="button button-secondary"
-              href={route(lang, 'projects')}
+              href={route(lang, 'contact')}
             >
-              {t.viewProjects}
+              {t.viewContact}
             </Link>
             <CV lang={lang} />
           </div>
@@ -263,34 +263,29 @@ export function HomePage({ lang }: { lang: Locale }) {
         </div>
       </section>
       <div className="container">
-        <div className="archive-grid">
-          <section className="home-section">
-            <SectionHeading label={t.projectLabel} title={t.projectHeading} />
-            {projects.length ? (
-              <ProjectList lang={lang} items={projects.slice(0, 2)} />
-            ) : (
-              <EmptyState
-                compact
-                title={t.projectEmptyTitle}
-                text={t.projectEmpty}
-              />
+        {(projects.length > 0 || recentNotes.length > 0) && (
+          <div className="archive-grid">
+            {projects.length > 0 && (
+              <section className="home-section">
+                <SectionHeading
+                  label={t.projectLabel}
+                  title={t.projectHeading}
+                />
+                <ProjectList lang={lang} items={projects.slice(0, 2)} />
+                <TextLink href={route(lang, 'projects')}>
+                  {t.allProjects}
+                </TextLink>
+              </section>
             )}
-            <TextLink href={route(lang, 'projects')}>{t.allProjects}</TextLink>
-          </section>
-          <section className="home-section">
-            <SectionHeading label={t.notesLabel} title={t.notesHeading} />
-            {recentNotes.length ? (
-              <NoteList lang={lang} items={recentNotes} />
-            ) : (
-              <EmptyState
-                compact
-                title={t.notesEmptyTitle}
-                text={t.notesEmpty}
-              />
+            {recentNotes.length > 0 && (
+              <section className="home-section">
+                <SectionHeading label={t.notesLabel} title={t.notesHeading} />
+                <NoteList lang={lang} items={recentNotes} />
+                <TextLink href={route(lang, 'notes')}>{t.allNotes}</TextLink>
+              </section>
             )}
-            <TextLink href={route(lang, 'notes')}>{t.allNotes}</TextLink>
-          </section>
-        </div>
+          </div>
+        )}
         <section className="home-section home-experience">
           <SectionHeading
             label={t.experienceLabel}
@@ -336,6 +331,14 @@ export function SectionPage({
     contact: t.contactPageIntro,
   };
   const title = section === 'learning' ? t.learningLabel : t.nav[section];
+  const cv = (profile.cv as Record<Locale, string | null>)[lang];
+  const academicProfiles = (
+    [
+      ['LinkedIn', profile.linkedin],
+      ['Google Scholar', profile.scholar],
+      ['ORCID', profile.orcid],
+    ] as [string, string | null][]
+  ).filter((entry): entry is [string, string] => Boolean(entry[1]));
   return (
     <div className={`container inner-page page-${section}`}>
       <PageHeading label={t.eyebrow} title={title} intro={intros[section]} />
@@ -415,43 +418,50 @@ export function SectionPage({
               </section>
             ))}
           </div>
-          <section className="content-section publication-section">
-            <h2>{t.publications}</h2>
-            {publications.length ? (
-              (
-                publications as {
-                  title: Localized;
-                  url: string;
-                  authors: string;
-                  status: string;
-                }[]
-              ).map((p, i) => (
-                <article key={i}>
-                  <h3>
-                    <a href={p.url}>{p.title[lang]}</a>
-                  </h3>
-                  <p>
-                    {p.authors} · {label(p.status, lang)}
-                  </p>
-                </article>
-              ))
-            ) : (
-              <p className="muted">{t.publicationsEmpty}</p>
-            )}
-          </section>
+          {publications.length > 0 && (
+            <section className="content-section publication-section">
+              <h2>{t.publications}</h2>
+              {publications.length ? (
+                (
+                  publications as {
+                    title: Localized;
+                    url: string;
+                    authors: string;
+                    status: string;
+                  }[]
+                ).map((p, i) => (
+                  <article key={i}>
+                    <h3>
+                      <a href={p.url}>{p.title[lang]}</a>
+                    </h3>
+                    <p>
+                      {p.authors} · {label(p.status, lang)}
+                    </p>
+                  </article>
+                ))
+              ) : (
+                <p className="muted">{t.publicationsEmpty}</p>
+              )}
+            </section>
+          )}
           <div className="related-links">
             <TextLink href={route(lang, 'learning')}>{t.allLearning}</TextLink>
-            <TextLink href={route(lang, 'projects')}>{t.viewProjects}</TextLink>
+            {projects.length > 0 && (
+              <TextLink href={route(lang, 'projects')}>
+                {t.viewProjects}
+              </TextLink>
+            )}
           </div>
         </>
       )}
       {section === 'learning' && (
         <>
           <LearningCards lang={lang} full />
-          <p className="small-note">{t.learningEvidence}</p>
           <Skills lang={lang} />
           <div className="related-links">
-            <TextLink href={route(lang, 'notes')}>{t.allNotes}</TextLink>
+            {notes(lang).length > 0 && (
+              <TextLink href={route(lang, 'notes')}>{t.allNotes}</TextLink>
+            )}
             <a
               className="text-link"
               href={profile.github}
@@ -565,7 +575,7 @@ export function SectionPage({
       )}
       {section === 'contact' && (
         <>
-          <div className="contact-page-grid">
+          <div className={`contact-page-grid${cv ? '' : ' without-cv'}`}>
             <div>
               <a className="contact-item" href={`mailto:${profile.email}`}>
                 <span className="eyebrow">{t.email}</span>
@@ -583,56 +593,38 @@ export function SectionPage({
                 <Arrow diagonal />
               </a>
             </div>
-            <aside className="cv-panel">
-              <p className="eyebrow">{t.cv}</p>
-              <h2>{profile.name[lang]}</h2>
-              <p>
-                {profile.role[lang]}
-                <br />
-                {profile.university[lang]}
-              </p>
-              <CV lang={lang} button />
-              <p className="small-note">
-                {!(profile.cv as Record<Locale, string | null>)[lang] &&
-                  t.cvHelp}
-              </p>
-            </aside>
-          </div>
-          <section className="content-section">
-            <h2>{t.otherProfiles}</h2>
-            {(
-              [
-                ['LinkedIn', profile.linkedin],
-                ['Google Scholar', profile.scholar],
-                ['ORCID', profile.orcid],
-              ] as [string, string | null][]
-            ).filter(([, url]) => url).length ? (
-              <div className="related-links">
-                {(
-                  [
-                    ['LinkedIn', profile.linkedin],
-                    ['Google Scholar', profile.scholar],
-                    ['ORCID', profile.orcid],
-                  ] as [string, string | null][]
-                ).map(([label, url]) =>
-                  url ? (
-                    <a
-                      key={label}
-                      className="text-link"
-                      href={url}
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      {label}
-                      <Arrow diagonal />
-                    </a>
-                  ) : null,
-                )}
-              </div>
-            ) : (
-              <p className="muted">{t.profilesPending}</p>
+            {cv && (
+              <aside className="cv-panel">
+                <p className="eyebrow">{t.cv}</p>
+                <h2>{profile.name[lang]}</h2>
+                <p>
+                  {profile.role[lang]}
+                  <br />
+                  {profile.university[lang]}
+                </p>
+                <CV lang={lang} button />
+              </aside>
             )}
-          </section>
+          </div>
+          {academicProfiles.length > 0 && (
+            <section className="content-section">
+              <h2>{t.otherProfiles}</h2>
+              <div className="related-links">
+                {academicProfiles.map(([label, url]) => (
+                  <a
+                    key={label}
+                    className="text-link"
+                    href={url}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    {label}
+                    <Arrow diagonal />
+                  </a>
+                ))}
+              </div>
+            </section>
+          )}
         </>
       )}
     </div>
