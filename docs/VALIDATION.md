@@ -1,5 +1,15 @@
 # Validation record
 
+## Homepage photo carousel — 2026-09-24
+
+- Three photos share the existing homepage frame: the original conference image and two AI-retouched additions. No photo detail routes or gallery navigation were added.
+- The production static build, TypeScript, content validation and formatting checks passed.
+- English and Chinese homepages passed browser checks at 1440, 390 and 320 pixels: previous/next wraparound, direct dot selection, keyboard arrows, stable frame height, no horizontal overflow, and no failed resources or browser errors.
+- Network checks confirmed the two new photos are not requested until selected. Responsive WebP variants are approximately 30–245 KB; JPEG fallback files are approximately 143–323 KB.
+- The first photo remains present without JavaScript. Mobile layout uses a full photo frame with 44-pixel controls. Desktop and mobile screenshots were visually reviewed.
+- Production Webpack caching is disabled after a local incremental build reused stale CSS. A full recompilation included the current styles and passed the checks above; this affects build time only.
+
+
 Date: 2026-09-23. Local tests used Windows, Node.js 24, and Microsoft Edge through Playwright. The GitHub Pages workflow also built and deployed successfully using Node.js 22 on GitHub's Ubuntu runner.
 
 ## Production build

@@ -63,6 +63,36 @@ for (const item of [profile.photo, ...Object.values(profile.cv)].filter(
     `Missing public asset: ${item}`,
   );
 const categories = read('categories');
+const photoSlugs = new Set();
+for (const photo of read('photos')) {
+  assert(
+    slugPattern.test(photo.slug ?? '') && !photoSlugs.has(photo.slug),
+    `Photo: invalid or duplicate slug ${photo.slug}`,
+  );
+  photoSlugs.add(photo.slug);
+  for (const key of ['title', 'caption', 'alt'])
+    assert(
+      localized(photo[key]),
+      `Photo ${photo.slug}: bilingual ${key} required`,
+    );
+  assert(
+    Number.isInteger(photo.width) &&
+      photo.width > 0 &&
+      Number.isInteger(photo.height) &&
+      photo.height > 0,
+    `Photo ${photo.slug}: positive image dimensions required`,
+  );
+  assert(
+    typeof photo.image === 'string' &&
+      /^\/images\/photos\/[a-z0-9-]+$/.test(photo.image),
+    `Photo ${photo.slug}: invalid image prefix`,
+  );
+  for (const suffix of ['.jpg', '-640.webp', '-1080.webp'])
+    assert(
+      fs.existsSync(path.join(root, 'public', `${photo.image}${suffix}`)),
+      `Photo ${photo.slug}: missing ${suffix} asset`,
+    );
+}
 const seenProjects = new Set();
 for (const project of read('projects')) {
   assert(

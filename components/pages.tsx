@@ -8,6 +8,8 @@ import experience from '@/data/experience.json';
 import awards from '@/data/awards.json';
 import categories from '@/data/categories.json';
 import publications from '@/data/publications.json';
+import photos from '@/data/photos.json';
+import { PhotoCarousel } from './photo-carousel';
 import {
   messages,
   asset,
@@ -200,34 +202,28 @@ export function HomePage({ lang }: { lang: Locale }) {
             <CV lang={lang} />
           </div>
         </div>
-        <figure className="hero-figure">
-          <div className="portrait-frame">
-            <div className="portrait-viewport">
-              <img
-                src={asset(profile.photo)}
-                alt={profile.photoAlt[lang]}
-                width="1824"
-                height="1368"
-                fetchPriority="high"
-              />
-            </div>
-            <div className="portrait-index">
-              01 / {lang === 'zh' ? '学习现场' : 'IN THE FIELD'}
-            </div>
-          </div>
-          <figcaption>
-            <span>{profile.photoCaption[lang]}</span>
-            <span>
-              {profile.entryYear} — {profile.graduationYear}*
-            </span>
-          </figcaption>
-          <p className="photo-footnote">
-            *{' '}
-            {lang === 'zh'
-              ? `本科阶段 · 预计 ${profile.graduationYear} 年毕业`
-              : 'Undergraduate studies · expected graduation'}
-          </p>
-        </figure>
+        <PhotoCarousel
+          lang={lang}
+          photos={[
+            {
+              id: 'in-the-field',
+              src: asset(profile.photo),
+              alt: profile.photoAlt[lang],
+              caption: profile.photoCaption[lang],
+              width: 1824,
+              height: 1368,
+            },
+            ...photos.map((photo) => ({
+              id: photo.slug,
+              src: asset(`${photo.image}.jpg`),
+              srcSet: `${asset(`${photo.image}-640.webp`)} 640w, ${asset(`${photo.image}-1080.webp`)} 1080w`,
+              alt: photo.alt[lang],
+              caption: photo.title[lang],
+              width: photo.width,
+              height: photo.height,
+            })),
+          ]}
+        />
       </section>
       <div className="container">
         <div className="focus-strip">

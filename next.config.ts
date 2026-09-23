@@ -12,5 +12,10 @@ const config: NextConfig = {
   poweredByHeader: false,
   turbopack: { root: process.cwd() },
   devIndicators: false,
+  // Rebuild CSS for static exports: persistent local caches can retain old styles.
+  webpack: (webpackConfig, { dev }) => {
+    if (!dev) webpackConfig.cache = false;
+    return webpackConfig;
+  },
 };
 export default config;

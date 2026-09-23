@@ -1,0 +1,38 @@
+[
+  {
+    "slug": "by-the-water",
+    "title": {
+      "en": "By the water",
+      "zh": "水畔一刻"
+    },
+    "caption": {
+      "en": "A quiet moment beside the water.",
+      "zh": "水畔的片刻停留。"
+    },
+    "alt": {
+      "en": "Zhongsheng Luo in a black T-shirt beside a pond, with trees and a geometric building in the background.",
+      "zh": "罗中圣身穿黑色 T 恤站在水畔，身后是绿树与几何造型的建筑。"
+    },
+    "image": "/images/photos/by-the-water",
+    "width": 1448,
+    "height": 1086
+  },
+  {
+    "slug": "at-the-podium",
+    "title": {
+      "en": "At the podium",
+      "zh": "讲台前"
+    },
+    "caption": {
+      "en": "An outdoor portrait at the podium.",
+      "zh": "一张在户外讲台前留下的照片。"
+    },
+    "alt": {
+      "en": "Zhongsheng Luo wearing glasses and a dark suit, standing behind a wooden podium outdoors with a tree and building behind him.",
+      "zh": "罗中圣戴着眼镜、身穿深色西装，站在户外的木质讲台后，背景是树木与建筑。"
+    },
+    "image": "/images/photos/at-the-podium",
+    "width": 1086,
+    "height": 1448
+  }
+]
