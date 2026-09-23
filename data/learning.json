@@ -1,0 +1,58 @@
+[
+  {
+    "id": "ai",
+    "number": "01",
+    "title": {
+      "en": "Artificial intelligence",
+      "zh": "人工智能"
+    },
+    "items": {
+      "en": ["Machine Learning", "Deep Learning"],
+      "zh": ["机器学习", "深度学习"]
+    },
+    "status": "learning"
+  },
+  {
+    "id": "cs",
+    "number": "02",
+    "title": {
+      "en": "Computer science",
+      "zh": "计算机科学"
+    },
+    "items": {
+      "en": ["Data Structures and Algorithms", "Computer Architecture"],
+      "zh": ["数据结构与算法", "计算机组成原理"]
+    },
+    "status": "learning"
+  },
+  {
+    "id": "math",
+    "number": "03",
+    "title": {
+      "en": "Mathematics & data science",
+      "zh": "数学与数据科学"
+    },
+    "items": {
+      "en": [
+        "Probability Theory and Mathematical Statistics",
+        "Data Mining",
+        "Data Processing"
+      ],
+      "zh": ["概率论与数理统计", "数据挖掘", "数据处理"]
+    },
+    "status": "learning"
+  },
+  {
+    "id": "future",
+    "number": "04",
+    "title": {
+      "en": "Future exploration",
+      "zh": "未来探索"
+    },
+    "items": {
+      "en": ["Large Language Models", "AI Agents", "Advanced AI Research"],
+      "zh": ["大语言模型", "AI 智能体", "进阶人工智能研究"]
+    },
+    "status": "planned"
+  }
+]

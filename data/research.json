@@ -1,0 +1,93 @@
+[
+  {
+    "id": "artificial-intelligence",
+    "number": "01",
+    "title": {
+      "en": "Artificial intelligence",
+      "zh": "人工智能"
+    },
+    "short": {
+      "en": "Learning the methods.",
+      "zh": "理解计算方法。"
+    },
+    "description": {
+      "en": "Exploring the computational methods behind learning systems, language, and intelligent agents.",
+      "zh": "探索学习系统、语言处理与智能体背后的计算方法。"
+    },
+    "topics": [
+      "Machine Learning",
+      "Deep Learning",
+      "Large Language Models",
+      "AI Agents",
+      "NLP"
+    ],
+    "questions": {
+      "en": [
+        "How can learning-based methods reveal useful patterns in complex data?",
+        "What are the strengths and limits of language models for social science?"
+      ],
+      "zh": [
+        "学习方法如何从复杂数据中发现有价值的模式？",
+        "语言模型用于社会科学研究时，能力与局限在哪里？"
+      ]
+    }
+  },
+  {
+    "id": "computational-social-science",
+    "number": "02",
+    "title": {
+      "en": "Computational social science",
+      "zh": "计算社会科学"
+    },
+    "short": {
+      "en": "Understanding society.",
+      "zh": "理解社会现象。"
+    },
+    "description": {
+      "en": "Connecting social and political questions with computational tools, empirical evidence, and careful interpretation.",
+      "zh": "将社会与政治问题、计算工具、经验证据与审慎解释联系起来。"
+    },
+    "topics": [
+      "Computational Politics",
+      "Social Computing",
+      "Public Opinion Analysis"
+    ],
+    "questions": {
+      "en": [
+        "How can computational methods help us understand public discourse?",
+        "How do we connect patterns in data with meaningful social questions?"
+      ],
+      "zh": [
+        "计算方法如何帮助理解公共讨论？",
+        "如何把数据中的模式与有意义的社会问题联系起来？"
+      ]
+    }
+  },
+  {
+    "id": "ai-governance",
+    "number": "03",
+    "title": {
+      "en": "AI governance",
+      "zh": "人工智能治理"
+    },
+    "short": {
+      "en": "Thinking about public value.",
+      "zh": "关注公共价值。"
+    },
+    "description": {
+      "en": "Examining how AI and data-driven approaches might inform digital governance and public policy.",
+      "zh": "关注人工智能与数据驱动方法如何为数字治理和公共政策提供支持。"
+    },
+    "topics": ["Digital Governance", "Data-driven Public Policy"],
+    "questions": {
+      "en": [
+        "How can AI support public policy analysis responsibly?",
+        "What should we consider when using data and AI in digital governance?"
+      ],
+      "zh": [
+        "人工智能如何负责任地支持公共政策分析？",
+        "数字治理应用数据与人工智能时，需要考虑哪些问题？"
+      ]
+    }
+  }
+]

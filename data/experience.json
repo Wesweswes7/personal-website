@@ -1,0 +1,65 @@
+[
+  {
+    "id": "data-administration",
+    "date": {
+      "en": "Jul — Aug 2026",
+      "zh": "2026 年 7—8 月"
+    },
+    "title": {
+      "en": "Shenzhen Municipal Data Administration",
+      "zh": "深圳市数据管理部门"
+    },
+    "type": {
+      "en": "Practice experience",
+      "zh": "实践经历"
+    },
+    "description": {
+      "en": "Experience with the Shenzhen Municipal Data Administration. The role, experience type, and activities will be added after confirmation.",
+      "zh": "深圳市数据管理部门相关经历。具体角色、经历类型与参与内容将在核实后补充。"
+    },
+    "todo": "TODO: Confirm official institution name, experience type and role",
+    "sortDate": "2026-07"
+  },
+  {
+    "id": "bimun-2026",
+    "date": {
+      "en": "2026",
+      "zh": "2026 年"
+    },
+    "title": {
+      "en": "Beijing International Model United Nations",
+      "zh": "北京国际模拟联合国大会"
+    },
+    "type": {
+      "en": "BIMUN 2026",
+      "zh": "BIMUN 2026"
+    },
+    "description": {
+      "en": "Participation in the 2026 conference. Further details about my role and activities will be added.",
+      "zh": "参加 2026 年会议。本人角色与具体参与内容待补充。"
+    },
+    "todo": "TODO: Add role and activities",
+    "sortDate": "2026"
+  },
+  {
+    "id": "szimun-2024",
+    "date": {
+      "en": "2024",
+      "zh": "2024 年"
+    },
+    "title": {
+      "en": "Shenzhen International Model United Nations",
+      "zh": "深圳国际模拟联合国大会"
+    },
+    "type": {
+      "en": "SZIMUN 2024",
+      "zh": "SZIMUN 2024"
+    },
+    "description": {
+      "en": "Participation in the 2024 conference. Further details about my role and activities will be added.",
+      "zh": "参加 2024 年会议。本人角色与具体参与内容待补充。"
+    },
+    "todo": "TODO: Add role and activities",
+    "sortDate": "2024"
+  }
+]

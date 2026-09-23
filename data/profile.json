@@ -1,0 +1,99 @@
+{
+  "name": {
+    "en": "Zhongsheng Luo",
+    "zh": "罗中圣"
+  },
+  "englishName": "Zhongsheng Luo",
+  "title": {
+    "en": "AI Student & Computational Social Science Researcher",
+    "zh": "人工智能学习者 · 计算社会科学研究者"
+  },
+  "university": {
+    "en": "Central China Normal University",
+    "zh": "华中师范大学"
+  },
+  "major": {
+    "en": "Political Science and Administration",
+    "zh": "政治学与行政学"
+  },
+  "program": {
+    "en": "Computational Politics Program",
+    "zh": "计算政治学实验班"
+  },
+  "role": {
+    "en": "Undergraduate Student",
+    "zh": "本科生"
+  },
+  "entryYear": 2025,
+  "graduationYear": 2029,
+  "intro": {
+    "en": "I am an undergraduate student at Central China Normal University, studying Political Science and Administration in the Computational Politics Program.",
+    "zh": "我是华中师范大学政治学与行政学专业（计算政治学实验班）本科生，2025 年入学，预计于 2029 年毕业。"
+  },
+  "interestsIntro": {
+    "en": "My interests lie at the intersection of artificial intelligence, machine learning, and computational social science.",
+    "zh": "我的兴趣位于人工智能、机器学习与计算社会科学的交叉领域。"
+  },
+  "motivation": {
+    "en": "I hope to explore how AI and data-driven methods can help us understand complex social phenomena and inform digital governance and public policy analysis.",
+    "zh": "我希望探索如何利用人工智能和数据驱动方法理解复杂社会现象，并为数字治理与公共政策分析提供支持。"
+  },
+  "now": {
+    "en": "Machine learning, deep learning, and the foundations of computer science and mathematics.",
+    "zh": "机器学习、深度学习，以及计算机科学与数学基础。"
+  },
+  "next": {
+    "en": "Large language models, AI agents, and AI for public policy analysis.",
+    "zh": "大语言模型、AI 智能体，以及面向公共政策分析的人工智能方法。"
+  },
+  "email": "2529631548@qq.com",
+  "github": "https://github.com/Wesweswes7",
+  "githubUsername": "Wesweswes7",
+  "photo": "/images/zhongsheng-luo.jpg",
+  "photoAlt": {
+    "en": "Zhongsheng Luo seated behind a laptop at a Model United Nations conference",
+    "zh": "罗中圣坐在模拟联合国会场的笔记本电脑后"
+  },
+  "photoCaption": {
+    "en": "A moment at Model United Nations",
+    "zh": "模拟联合国会场一刻"
+  },
+  "cv": {
+    "en": null,
+    "zh": null
+  },
+  "linkedin": null,
+  "scholar": null,
+  "orcid": null,
+  "updatedAt": "2026-09-23",
+  "skills": [
+    {
+      "name": "Python",
+      "status": {
+        "en": "Currently learning",
+        "zh": "正在学习"
+      }
+    },
+    {
+      "name": "C++",
+      "status": {
+        "en": "Basic experience",
+        "zh": "有基础经验"
+      }
+    },
+    {
+      "name": "Machine Learning",
+      "status": {
+        "en": "Currently learning",
+        "zh": "正在学习"
+      }
+    },
+    {
+      "name": "Deep Learning",
+      "status": {
+        "en": "Currently learning",
+        "zh": "正在学习"
+      }
+    }
+  ]
+}

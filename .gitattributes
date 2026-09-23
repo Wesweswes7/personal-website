@@ -1,0 +1,5 @@
+* text=auto eol=lf
+*.md whitespace=-blank-at-eol
+*.jpg -text
+*.png -text
+*.pdf -text

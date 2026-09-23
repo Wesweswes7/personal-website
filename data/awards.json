@@ -1,0 +1,86 @@
+[
+  {
+    "id": "campus-research",
+    "title": {
+      "en": "9th Campus Research Competition",
+      "zh": "第九届校园调研大赛（正式名称待核实）"
+    },
+    "organization": {
+      "en": "Central China Normal University",
+      "zh": "华中师范大学"
+    },
+    "award": {
+      "en": "First Prize",
+      "zh": "一等奖"
+    },
+    "category": {
+      "en": "Academic",
+      "zh": "学术类"
+    },
+    "year": null,
+    "todo": "TODO: Confirm official title, year, team and individual contribution"
+  },
+  {
+    "id": "football",
+    "title": {
+      "en": "Bao’an District Youth Campus Football Competition",
+      "zh": "宝安区青少年校园足球比赛"
+    },
+    "organization": {
+      "en": "Shenzhen · High School Group",
+      "zh": "深圳 · 高中组"
+    },
+    "award": {
+      "en": "Runner-up",
+      "zh": "亚军"
+    },
+    "category": {
+      "en": "Sport",
+      "zh": "体育类"
+    },
+    "year": null,
+    "todo": "TODO: Add official title and year"
+  },
+  {
+    "id": "nanyue",
+    "title": {
+      "en": "Nanyue Youth Recognition",
+      "zh": "Nanyue Youth Recognition"
+    },
+    "organization": {
+      "en": "Official awarding body to be confirmed",
+      "zh": "正式授予单位待补充"
+    },
+    "award": {
+      "en": "Recognition",
+      "zh": "荣誉"
+    },
+    "category": {
+      "en": "Recognition",
+      "zh": "综合类"
+    },
+    "year": null,
+    "todo": "TODO: Add official Chinese title, year and awarding body"
+  },
+  {
+    "id": "student-leader",
+    "title": {
+      "en": "Outstanding Student Leader of Bao’an District",
+      "zh": "宝安区优秀学生干部（正式名称待核实）"
+    },
+    "organization": {
+      "en": "Bao’an District, Shenzhen",
+      "zh": "深圳市宝安区"
+    },
+    "award": {
+      "en": "Recognition",
+      "zh": "荣誉"
+    },
+    "category": {
+      "en": "Recognition",
+      "zh": "综合类"
+    },
+    "year": null,
+    "todo": "TODO: Add official title, year and awarding body"
+  }
+]

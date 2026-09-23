@@ -1,0 +1,23 @@
+{
+  "id": "replace-with-project-id",
+  "slug": "replace-with-project-slug",
+  "status": "draft",
+  "progress": "planned",
+  "category": "Computational Social Science Projects",
+  "title": { "en": "TODO: Project title", "zh": "TODO：项目名称" },
+  "summary": {
+    "en": "TODO: Actual research question and project scope",
+    "zh": "TODO：实际问题与项目范围"
+  },
+  "contribution": {
+    "en": "TODO: Your individual contribution",
+    "zh": "TODO：本人贡献"
+  },
+  "methods": { "en": "TODO: Data and methods", "zh": "TODO：数据与方法" },
+  "results": {
+    "en": "TODO: Results and limitations",
+    "zh": "TODO：结果与局限"
+  },
+  "tags": [],
+  "updatedAt": "2026-09-23"
+}
