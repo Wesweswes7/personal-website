@@ -2,6 +2,8 @@
 
 A bilingual academic portfolio for Zhongsheng Luo (罗中圣), an undergraduate at Central China Normal University. Built with Next.js App Router and TypeScript, with static export for GitHub Pages.
 
+[English homepage](https://wesweswes7.github.io/personal-website/en/) · [中文主页](https://wesweswes7.github.io/personal-website/zh/)
+
 English is the default language. All nine core pages have Chinese counterparts. The supplied photograph is kept unchanged; the browser controls its framing.
 
 ## Run locally
@@ -43,13 +45,13 @@ No CV download link is rendered until the matching local PDF is supplied. Draft 
 
 ## Deployment
 
-The included GitHub Actions workflow builds and deploys to GitHub Pages. It reads the site's origin and base path from GitHub's Pages configuration, supporting project sites, user sites, and configured custom domains. Publishing still requires a repository under the intended GitHub account with Pages enabled.
+The included GitHub Actions workflow builds and deploys to GitHub Pages on pushes to `main`. Pages is enabled for this repository with GitHub Actions as its source. The workflow reads the site's origin and base path from GitHub's Pages configuration, supporting project sites, user sites, and configured custom domains.
 
 For a manual build, set `NEXT_PUBLIC_SITE_URL` to the origin only, such as `https://wesweswes7.github.io`, and `NEXT_PUBLIC_BASE_PATH` to the project path, such as `/personal-website`. Both values must be set **before building**. Local development needs neither variable. The site URL in generated metadata is a deployment target, not proof that the site is already live.
 
 ## Showcase
 
-The homepage introduces the author's identity, current learning, future exploration, and research interests. Research, Learning, About, Experience, Awards, Projects, Notes, and Contact provide the full archive. Add a live-site link here after the first confirmed deployment.
+The homepage introduces the author's identity, current learning, future exploration, and research interests. Research, Learning, About, Experience, Awards, Projects, Notes, and Contact provide the full archive.
 
 ## Rights
 

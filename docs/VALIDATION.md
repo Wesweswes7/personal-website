@@ -1,6 +1,6 @@
 # Validation record
 
-Date: 2026-09-23. Tests were run locally on Windows with Node.js 24 and Microsoft Edge through Playwright. The deployment workflow targets Node.js 22 on GitHub's Ubuntu runner; that remote workflow has not been executed yet.
+Date: 2026-09-23. Local tests used Windows, Node.js 24, and Microsoft Edge through Playwright. The GitHub Pages workflow also built and deployed successfully using Node.js 22 on GitHub's Ubuntu runner.
 
 ## Production build
 
@@ -29,8 +29,16 @@ Only the separate validation copy received test entries. The release source and 
 
 Fifteen assertions passed, covering generated English and Chinese project pages, Markdown tables, deployment-aware canonical URLs and internal links, language switching within an article, a missing-translation page with `noindex`, an original-language link, sitemap exclusion of missing translations, and exclusion of draft notes and projects from both exported pages and the sitemap.
 
-## Remaining content and publication steps
+## Live deployment
+
+- Repository: [Wesweswes7/personal-website](https://github.com/Wesweswes7/personal-website).
+- Website: [English](https://wesweswes7.github.io/personal-website/en/) · [中文](https://wesweswes7.github.io/personal-website/zh/).
+- [First deployment](https://github.com/Wesweswes7/personal-website/actions/runs/35867044435): build and deploy both passed.
+- HTTP checks passed for the root, all 18 core pages, 18 internal destinations, and 11 referenced assets. Document languages, canonical URLs, base paths, sitemap, and the unknown-route 404 were checked.
+- The deployed photograph's SHA-256 matches the approved local photograph.
+- The first live Playwright navigation timed out on the local connection. The browser interaction and responsive checks above refer to the local production build with the same project base path; the live checks used direct HTTPS requests.
+
+## Remaining content
 
 - CV files, formal experience roles, official award titles/years, and optional academic profile links remain pending.
 - The original user-supplied photograph is retained without image editing; CSS controls framing.
-- The GitHub repository, Pages configuration, remote workflow permissions, and live deployment still need to be established or confirmed in the intended account.

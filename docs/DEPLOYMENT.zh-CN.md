@@ -1,6 +1,6 @@
 # 发布到 GitHub Pages
 
-本项目已准备好工作流，但本地文件不等于已经建立远程仓库或已经发布。先核对网站，再发布到本人账号。
+本项目已于 2026-09-23 发布到 [GitHub Pages](https://wesweswes7.github.io/personal-website/)，源码仓库为 [Wesweswes7/personal-website](https://github.com/Wesweswes7/personal-website)。向 `main` 分支提交更新后，GitHub Actions 会自动重新构建和发布。
 
 ## 推荐流程
 
@@ -11,7 +11,7 @@
 5. 在 Actions 中手动运行 `Deploy website to GitHub Pages`，或者向 `main` 提交变更。
 6. 等待 build 与 deploy 两个任务完成，从部署任务显示的链接访问网站。
 
-如果使用默认项目站点，预期地址为 `https://wesweswes7.github.io/personal-website/`。这是部署目标，首次成功发布前不能当作已上线链接。
+当前项目站点地址为 `https://wesweswes7.github.io/personal-website/`，英文入口为 `/en/`，中文入口为 `/zh/`。
 
 工作流通过 `actions/configure-pages` 读取 `origin` 与 `base_path`。Next.js 以这些信息生成页面资源、图片、语言切换、canonical 和 sitemap。无需在每个内容文件里添加仓库前缀。
 
