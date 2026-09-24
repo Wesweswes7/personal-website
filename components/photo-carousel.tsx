@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, type ReactNode } from 'react';
 
 export type CarouselPhoto = {
   id: string;
@@ -15,9 +15,11 @@ export type CarouselPhoto = {
 export function PhotoCarousel({
   photos,
   lang,
+  children,
 }: {
   photos: CarouselPhoto[];
   lang: 'en' | 'zh';
+  children?: ReactNode;
 }) {
   const [index, setIndex] = useState(0);
   const photo = photos[index];
@@ -26,6 +28,7 @@ export function PhotoCarousel({
   return (
     <figure
       className="hero-figure photo-carousel"
+      data-photo={photo.id}
       aria-roledescription={lang === 'en' ? 'carousel' : '轮播'}
       aria-label={lang === 'en' ? 'Personal photographs' : '个人照片'}
       onKeyDown={(event) => {
@@ -39,11 +42,7 @@ export function PhotoCarousel({
         <div className="portrait-viewport">
           <picture key={photo.id}>
             {photo.srcSet && (
-              <source
-                type="image/webp"
-                srcSet={photo.srcSet}
-                sizes="(max-width: 640px) calc(100vw - 68px), 340px"
-              />
+              <source type="image/webp" srcSet={photo.srcSet} sizes="100vw" />
             )}
             <img
               src={photo.src}
@@ -57,47 +56,50 @@ export function PhotoCarousel({
           </picture>
         </div>
       </div>
-      <div
-        className="carousel-controls"
-        role="group"
-        aria-label={lang === 'en' ? 'Choose a photo' : '切换照片'}
-      >
-        <button
-          type="button"
-          onClick={() => change(-1)}
-          aria-label={lang === 'en' ? 'Previous photo' : '上一张'}
-          className="carousel-arrow"
-        >
-          ←
-        </button>
-        <div className="carousel-dots">
-          {photos.map((item, position) => (
-            <button
-              key={item.id}
-              type="button"
-              onClick={() => setIndex(position)}
-              aria-label={`${lang === 'en' ? 'Photo' : '照片'} ${position + 1}: ${item.caption}`}
-              aria-pressed={index === position}
-            >
-              <span />
-            </button>
-          ))}
+      {children}
+      <figcaption className="cover-bottom container">
+        <div className="cover-caption" aria-live="polite" aria-atomic="true">
+          <span>{photo.caption}</span>
+          <span>
+            {String(index + 1).padStart(2, '0')} /{' '}
+            {String(photos.length).padStart(2, '0')}
+          </span>
         </div>
-        <button
-          type="button"
-          onClick={() => change(1)}
-          aria-label={lang === 'en' ? 'Next photo' : '下一张'}
-          className="carousel-arrow"
+        <div
+          className="carousel-controls"
+          role="group"
+          aria-label={lang === 'en' ? 'Choose a photo' : '切换照片'}
         >
-          →
-        </button>
-      </div>
-      <figcaption aria-live="polite" aria-atomic="true">
-        <span>{photo.caption}</span>
-        <span>
-          {String(index + 1).padStart(2, '0')} /{' '}
-          {String(photos.length).padStart(2, '0')}
-        </span>
+          <button
+            type="button"
+            onClick={() => change(-1)}
+            aria-label={lang === 'en' ? 'Previous photo' : '上一张'}
+            className="carousel-arrow"
+          >
+            ←
+          </button>
+          <div className="carousel-dots">
+            {photos.map((item, position) => (
+              <button
+                key={item.id}
+                type="button"
+                onClick={() => setIndex(position)}
+                aria-label={`${lang === 'en' ? 'Photo' : '照片'} ${position + 1}: ${item.caption}`}
+                aria-pressed={index === position}
+              >
+                <span />
+              </button>
+            ))}
+          </div>
+          <button
+            type="button"
+            onClick={() => change(1)}
+            aria-label={lang === 'en' ? 'Next photo' : '下一张'}
+            className="carousel-arrow"
+          >
+            →
+          </button>
+        </div>
       </figcaption>
     </figure>
   );

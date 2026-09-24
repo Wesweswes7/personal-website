@@ -82,12 +82,10 @@ export function Navigation({
           className="brand"
           aria-label={`${t.nav.home} — Zhongsheng Luo`}
         >
-          <span className="monogram">
-            ZL<span>.</span>
-          </span>
           <span>Zhongsheng Luo</span>
         </Link>
         <nav className="desktop-nav" aria-label={t.menu}>
+          {navLink('home')}
           {(['research', 'learning', 'projects', 'notes'] as Section[])
             .filter((key) => available.includes(key))
             .map((key) => navLink(key))}

@@ -2,9 +2,11 @@
 
 A bilingual academic portfolio for Zhongsheng Luo (罗中圣), an undergraduate at Central China Normal University. Built with Next.js App Router and TypeScript, with static export for GitHub Pages.
 
-[English homepage](https://wesweswes7.github.io/personal-website/en/) · [中文主页](https://wesweswes7.github.io/personal-website/zh/)
+[English homepage](https://wesweswes7.github.io/zhongshengluo06/en/) · [中文主页](https://wesweswes7.github.io/zhongshengluo06/zh/)
 
-English is the default language. All nine core pages have Chinese counterparts. The supplied photograph is kept unchanged; the browser controls its framing.
+The repository has been renamed to [Wesweswes7/zhongshengluo06](https://github.com/Wesweswes7/zhongshengluo06). The links above are the new project-site deployment targets; publication and live verification are in progress.
+
+English is the default language. All nine core pages have Chinese counterparts. The redesigned cover uses the original conference photograph and a retouched waterside photograph; the browser controls their framing. The podium photograph is excluded from the cover.
 
 ## Run locally
 
@@ -47,9 +49,11 @@ The homepage prioritizes research interests and contact. Shared styles are inlin
 
 ## Deployment
 
-The included GitHub Actions workflow builds and deploys to GitHub Pages on pushes to `main`. Pages is enabled for this repository with GitHub Actions as its source. The workflow reads the site's origin and base path from GitHub's Pages configuration, supporting project sites, user sites, and configured custom domains.
+The website repository is [Wesweswes7/zhongshengluo06](https://github.com/Wesweswes7/zhongshengluo06), renamed from `personal-website`. Its deployment target is [the new project site](https://wesweswes7.github.io/zhongshengluo06/). The included GitHub Actions workflow builds and deploys on pushes to `main`, using GitHub Actions as the Pages source. It reads the origin and base path from GitHub's Pages configuration. After the rename, rerun the workflow and verify the new project URLs.
 
-For a manual build, set `NEXT_PUBLIC_SITE_URL` to the origin only, such as `https://wesweswes7.github.io`, and `NEXT_PUBLIC_BASE_PATH` to the project path, such as `/personal-website`. Both values must be set **before building**. Local development needs neither variable. The site URL in generated metadata is a deployment target, not proof that the site is already live.
+For a manual production build, set `NEXT_PUBLIC_SITE_URL` to `https://wesweswes7.github.io` and `NEXT_PUBLIC_BASE_PATH` to `/zhongshengluo06`, then preview with `npm run preview -- --base /zhongshengluo06`. Both values take effect **before building**. Local development needs neither variable.
+
+GitHub redirects the old repository URL after a rename, but it does not automatically redirect the old Pages project URLs. Update bookmarks and shared website, image, and CV links from `/personal-website/` to `/zhongshengluo06/` after the new deployment is verified.
 
 ## Showcase
 

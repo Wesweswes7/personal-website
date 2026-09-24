@@ -1,6 +1,19 @@
 # Validation record
 
-## Homepage photo carousel — 2026-09-24
+## Visual redesign and new project URL — 2026-09-24
+
+Current release target: [Wesweswes7/zhongshengluo06](https://github.com/Wesweswes7/zhongshengluo06), with the website at [https://wesweswes7.github.io/zhongshengluo06/](https://wesweswes7.github.io/zhongshengluo06/). **The repository rename and local project-path QA are confirmed; deployment and live verification are in progress.** The user chose to keep this project URL. This release does not provide redirects from the former Pages project URLs. An HTTP 200 response from the renamed project alone is not evidence that the redesigned build is live.
+
+- The local redesign uses a large photographic cover, serif headings, generous spacing, fine separators, and white/navy styling. The author's name and academic identity remain unchanged.
+- The cover contains **two photographs only**: the original conference photograph and the retouched waterside photograph. The podium photograph is excluded from the cover. No separate photo pages or gallery navigation were added.
+- The initial redesign checks ran on a local build without a project prefix. A subsequent production build under `/zhongshengluo06/` passed the full 18-page matrix at viewport widths of 1440, 390, and 320 pixels. All 18 internal destinations, document languages, language switching with page retention, mobile menus, Escape handling, desktop About navigation, the English default root, and unknown-route 404 behavior passed. The new-project report contains no layout/link issues or browser errors.
+- Both language versions passed carousel checks at all three widths under the new `/zhongshengluo06/` base path: two slides, previous/next wraparound, direct dot selection, keyboard arrows, stable frame height, loaded images, and no horizontal overflow. The waterside image is not requested until selected; the podium image is never requested by the cover. The initial photograph remains available with JavaScript disabled. No photo-detail route appears in the sitemap, and the removed photo-detail URL returns 404.
+
+Local evidence is retained outside the website source in the task's `work/` directory: `qa-new-project.json`, `qa_carousel.cjs`, and `carousel-checks.json`. The earlier `qa-redesign.json` covers the prior local root-path build. Root-path redirect experiments are superseded and are not part of this release.
+
+## Earlier homepage photo carousel — 2026-09-24
+
+The following records the earlier three-photo layout, which is superseded by the two-photo local redesign above.
 
 - Three photos share the existing homepage frame: the original conference image and two AI-retouched additions. No photo detail routes or gallery navigation were added.
 - The production static build, TypeScript, content validation and formatting checks passed.
@@ -8,7 +21,6 @@
 - Network checks confirmed the two new photos are not requested until selected. Responsive WebP variants are approximately 30–245 KB; JPEG fallback files are approximately 143–323 KB.
 - The first photo remains present without JavaScript. Mobile layout uses a full photo frame with 44-pixel controls. Desktop and mobile screenshots were visually reviewed.
 - Production Webpack caching is disabled after a local incremental build reused stale CSS. A full recompilation included the current styles and passed the checks above; this affects build time only.
-
 
 Date: 2026-09-23. Local tests used Windows, Node.js 24, and Microsoft Edge through Playwright. The GitHub Pages workflow also built and deployed successfully using Node.js 22 on GitHub's Ubuntu runner.
 
@@ -50,7 +62,7 @@ Twenty-one assertions passed, covering generated English and Chinese project pag
 - Language switching, browser back navigation, menu interaction, and ordinary navigation with JavaScript disabled passed. Unsupported or resource-constrained browsers may decline speculative loading without breaking links.
 - Local click timings are not an estimate of public GitHub Pages speed. Network latency remains dependent on the visitor's connection.
 
-## Live deployment
+## Historical live deployment — former project URL
 
 - Repository: [Wesweswes7/personal-website](https://github.com/Wesweswes7/personal-website).
 - Website: [English](https://wesweswes7.github.io/personal-website/en/) · [中文](https://wesweswes7.github.io/personal-website/zh/).

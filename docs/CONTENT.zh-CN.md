@@ -29,7 +29,7 @@ LinkedIn、Google Scholar、ORCID 建立后，将 `linkedin`、`scholar`、`orci
 
 ## 首页照片轮换
 
-首页照片区域包含原来的会议照和两张新增照片，通过左右箭头、圆点或键盘方向键切换，不自动播放，也不跳转到独立照片页。第一张照片取自 `data/profile.json`；`data/photos.json` 管理其余照片的顺序、固定 `slug`、中英文标题、简短说明、替代文字以及图片尺寸。`slug` 仅用作稳定标识。
+首页封面包含原来的会议照和水畔照，通过左右箭头、圆点或键盘方向键切换，不自动播放，也不跳转到独立照片页。第一张照片取自 `data/profile.json`；`data/photos.json` 管理其余照片的顺序、固定 `slug`、中英文标题、简短说明、替代文字以及图片尺寸。`showOnCover` 控制是否进入封面轮换；讲台照设为 `false`，保留文件但不在封面展示。`slug` 仅用作稳定标识。
 
 网页图片放在 `public/images/photos/`。`image` 填写不含扩展名的前缀，例如 `/images/photos/by-the-water`；同一前缀下提供 `.jpg` 备用图、宽度为 640 的 `-640.webp` 和宽度为 1080 的 `-1080.webp`。各版本保留相同构图和宽高比，`width`、`height` 填写 JPG 的实际尺寸。原始照片与修图母版单独存档，不把大文件直接作为页面资源。
 

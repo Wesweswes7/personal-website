@@ -1,6 +1,7 @@
 [
   {
     "slug": "by-the-water",
+    "showOnCover": true,
     "title": {
       "en": "By the water",
       "zh": "水畔一刻"
@@ -19,6 +20,7 @@
   },
   {
     "slug": "at-the-podium",
+    "showOnCover": false,
     "title": {
       "en": "At the podium",
       "zh": "讲台前"

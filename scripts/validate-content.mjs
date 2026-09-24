@@ -70,6 +70,10 @@ for (const photo of read('photos')) {
     `Photo: invalid or duplicate slug ${photo.slug}`,
   );
   photoSlugs.add(photo.slug);
+  assert(
+    typeof photo.showOnCover === 'boolean',
+    `Photo ${photo.slug}: showOnCover must be true or false`,
+  );
   for (const key of ['title', 'caption', 'alt'])
     assert(
       localized(photo[key]),

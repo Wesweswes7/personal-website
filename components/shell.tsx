@@ -5,6 +5,7 @@ import { Footer } from './ui';
 import { type Locale, asset, messages } from '@/lib/site';
 import { visibleSections } from '@/lib/content';
 import '@/app/globals.css';
+import '@/app/editorial.css';
 
 export function Document({
   lang,

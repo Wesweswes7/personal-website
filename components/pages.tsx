@@ -167,41 +167,7 @@ export function HomePage({ lang }: { lang: Locale }) {
   const recentNotes = notes(lang).slice(0, 3);
   return (
     <>
-      <section className="hero container">
-        <div className="hero-copy">
-          <p className="eyebrow hero-eyebrow">
-            <span className="short-rule" />
-            {t.eyebrow}
-          </p>
-          <h1>
-            {profile.name[lang]}
-            <span className="name-period">.</span>
-          </h1>
-          <p className="hero-title">{profile.title[lang]}</p>
-          <div className="affiliation">
-            <span>{profile.role[lang]}</span>
-            <span className="affiliation-separator">/</span>
-            <span>{profile.university[lang]}</span>
-          </div>
-          <p className="hero-intro">{profile.intro[lang]}</p>
-          <p className="hero-intro">{profile.interestsIntro[lang]}</p>
-          <div className="hero-actions">
-            <Link
-              className="button button-primary"
-              href={route(lang, 'research')}
-            >
-              {t.viewResearch}
-              <Arrow />
-            </Link>
-            <Link
-              className="button button-secondary"
-              href={route(lang, 'contact')}
-            >
-              {t.viewContact}
-            </Link>
-            <CV lang={lang} />
-          </div>
-        </div>
+      <section className="home-cover" aria-labelledby="home-name">
         <PhotoCarousel
           lang={lang}
           photos={[
@@ -213,17 +179,65 @@ export function HomePage({ lang }: { lang: Locale }) {
               width: 1824,
               height: 1368,
             },
-            ...photos.map((photo) => ({
-              id: photo.slug,
-              src: asset(`${photo.image}.jpg`),
-              srcSet: `${asset(`${photo.image}-640.webp`)} 640w, ${asset(`${photo.image}-1080.webp`)} 1080w`,
-              alt: photo.alt[lang],
-              caption: photo.title[lang],
-              width: photo.width,
-              height: photo.height,
-            })),
+            ...photos
+              .filter((photo) => photo.showOnCover)
+              .map((photo) => ({
+                id: photo.slug,
+                src: asset(`${photo.image}.jpg`),
+                srcSet: `${asset(`${photo.image}-640.webp`)} 640w, ${asset(`${photo.image}-1080.webp`)} 1080w`,
+                alt: photo.alt[lang],
+                caption: photo.title[lang],
+                width: photo.width,
+                height: photo.height,
+              })),
           ]}
-        />
+        >
+          <div className="cover-copy container">
+            <p className="cover-eyebrow">
+              {lang === 'en' ? 'A personal academic space' : '个人学术主页'}
+            </p>
+            <h1 id="home-name">{profile.name[lang]}</h1>
+            <p className="cover-title">{profile.title[lang]}</p>
+            <p className="cover-affiliation">
+              {profile.university[lang]}
+              <span> · </span>
+              {profile.role[lang]}
+            </p>
+            <div className="hero-actions">
+              <Link
+                className="button button-primary"
+                href={route(lang, 'research')}
+              >
+                {t.viewResearch}
+                <Arrow />
+              </Link>
+              <Link
+                className="button button-secondary"
+                href={route(lang, 'contact')}
+              >
+                {t.viewContact}
+              </Link>
+              <CV lang={lang} />
+            </div>
+          </div>
+        </PhotoCarousel>
+      </section>
+      <section className="home-introduction container">
+        <div>
+          <p className="eyebrow">
+            {lang === 'en' ? 'A little about me' : '关于我'}
+          </p>
+          <h2>
+            {lang === 'en'
+              ? 'Curiosity across disciplines.'
+              : '从好奇出发，跨越学科。'}
+          </h2>
+          <TextLink href={route(lang, 'about')}>{t.aboutMe}</TextLink>
+        </div>
+        <div className="introduction-copy">
+          <p>{profile.intro[lang]}</p>
+          <p>{profile.interestsIntro[lang]}</p>
+        </div>
       </section>
       <div className="container">
         <div className="focus-strip">
